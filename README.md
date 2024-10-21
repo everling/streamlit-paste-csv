@@ -85,7 +85,7 @@ Create a paste button that displays the pasted image when clicked.
 
 ```python
 import streamlit as st
-from streamlit_paste_button import paste_image_button as pbutton
+from streamlit_paste_csv import paste_image_button as pbutton
 
 paste_result = pbutton("📋 Paste an image")
 
@@ -99,7 +99,7 @@ if paste_result.image_data is not None:
 Create a paste button with a custom label and colors.
 
 ```python
-from streamlit_paste_button import paste_image_button as pbutton
+from streamlit_paste_csv import paste_image_button as pbutton
 
 paste_result = pbutton(
     label="📋 Paste an image",
@@ -114,7 +114,7 @@ paste_result = pbutton(
 Create a paste button that displays errors as `st.error` messages.
 
 ```python
-from streamlit_paste_button import paste_image_button as pbutton
+from streamlit_paste_csv import paste_image_button as pbutton
 
 paste_result = pbutton(
     label="📋 Paste an image",
@@ -127,7 +127,7 @@ paste_result = pbutton(
 PasteResult is a PIL.Image.Image object. It can be manipulated as such.
 
 ```python
-from streamlit_paste_button import paste_image_button as pbutton
+from streamlit_paste_csv import paste_image_button as pbutton
 import io
 import base64
 import numpy as np
@@ -138,11 +138,11 @@ if paste_result.image_data is not None:
     # Convert to bytes
     img_bytes = io.BytesIO()
     paste_result.image_data.save(img_bytes, format='PNG')
-    img_bytes = img_bytes.getvalue() # Image as bytes
+    img_bytes = img_bytes.getvalue()  # Image as bytes
 
     # Convert to base64
-    img_b64 =  base64.b64encode(img_bytes).decode('utf-8') # Image as base64
+    img_b64 = base64.b64encode(img_bytes).decode('utf-8')  # Image as base64
 
     # Convert to numpy array
-    img_np = np.array(paste_result.image_data) # Image as numpy array
+    img_np = np.array(paste_result.image_data)  # Image as numpy array
 ```
